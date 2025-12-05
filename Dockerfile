@@ -12,14 +12,14 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia TUDO do projeto (incluindo templates/img/)
+# Copia TUDO do projeto
 COPY . .
 
-# Cria apenas os diretórios que não existem
-RUN mkdir -p uploads output
+# Cria diretórios necessários
+RUN mkdir -p uploads output templates/img
 
-# Expõe a porta da aplicação
+# Expõe a porta (Render usa variável PORT)
 EXPOSE 8000
 
-# Comando para iniciar a aplicação em produção
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
+# Comando para iniciar - usa PORT do ambiente
+CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 1
