@@ -96,12 +96,12 @@ bc_sheet_processor/
 The system accepts two spreadsheet patterns:
 
 ### Pattern 1 (3 columns):
-| Phone | Name | Tags |
+| Telefone | Nome | Etiquetas |
 |----------|------|-----------|
 | 11987654321 | John Doe | Customer |
 
 ### Pattern 2 (4 columns):
-| First Name | Last Name | Phone | Tags |
+| Primeiro nome | Sobrenome | Telefone | Etiquetas |
 |---------------|-----------|----------|-----------|
 | John | Doe | 11987654321 | Customer |
 
