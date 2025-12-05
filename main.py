@@ -13,6 +13,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 app = FastAPI(title="Processador de Excel - BotConversa")
 
+app.mount("/img", StaticFiles(directory="templates/img"), name="images")
+
 # Configurações
 templates = Jinja2Templates(directory="templates")
 executor = ThreadPoolExecutor(max_workers=3) 
@@ -305,7 +307,7 @@ def processar_excel_background(arquivo_entrada: str, job_id: str, nome_original:
         
         # Define nome e caminho do arquivo de saída
         nome_base = os.path.splitext(nome_original)[0]
-        nome_saida = f'{nome_base}_processado.xlsx'
+        nome_saida = f'{nome_base}_{uuid4()}.xlsx'
         caminho_saida = os.path.abspath(os.path.join('output', nome_saida))
         
         print(f"[{job_id}] Salvando em: {caminho_saida}")
