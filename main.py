@@ -303,7 +303,7 @@ def processar_excel_background(arquivo_entrada: str, job_id: str, nome_original:
                     novo_dados.append([primeiro_nome, sobrenome, telefone, etiquetas])
 
                 # Atualiza progresso a cada 100 linhas
-                if row_idx % 100 == 0 and linhas_originais > 0:
+                if row_idx % 5000 == 0 and linhas_originais > 0:
                     progresso = 30 + int((row_idx / linhas_originais) * 50)
                     update_job_progress(job_id, min(progresso, 80))
 
