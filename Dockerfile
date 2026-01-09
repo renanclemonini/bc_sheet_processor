@@ -22,4 +22,4 @@ RUN mkdir -p uploads output templates/img
 EXPOSE 8000
 
 # Comando para iniciar - usa PORT do ambiente
-CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 2
+CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 1
